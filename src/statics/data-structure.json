@@ -1,0 +1,42 @@
+{
+    "users": {
+        "USERID1": {
+            "name": "Chan",
+            "email": "chan@test.com",
+            "online": true
+        },
+        "USERID2": {
+            "name": "Jim",
+            "email": "jim@test.com",
+            "online": true
+        }
+    },
+
+    "chats": {
+        "USERID1": {
+            "USERID2": {
+                "MESSAGEID1": {
+                    "text": "Hi how are you?",
+                    "from": "them"
+                },
+                "MESSAGEID1": {
+                    "text": "Good thanks, how are you?",
+                    "from": "me"
+                }
+            }
+        },
+        "USERID2": {
+            "USERID2": {
+                "MESSAGEID1": {
+                    "text": "Hi how are you?",
+                    "from": "me"
+                },
+                "MESSAGEID1": {
+                    "text": "Good thanks, how are you?",
+                    "from": "them"
+                }
+            }
+        }
+        
+    }
+}
