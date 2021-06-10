@@ -1,8 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import { firebaseAuth, firebaseDb } from 'boot/firebase';
-
 import store from './chat/index.js'
 
 Vue.use(Vuex)

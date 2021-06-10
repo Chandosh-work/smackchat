@@ -19,3 +19,8 @@ export function addMessage(state, payload) {
 export function clearMessages(state, payload) {
     state.messages = {};
 }
+
+export function setTab(state, payload) {
+    state.tab = payload;
+}
+

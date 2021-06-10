@@ -6,6 +6,7 @@
               class="q-pb-md"
               outlined
               v-model="formData.name"
+              required
               label="Name" />
             <q-input
               dense
@@ -13,6 +14,7 @@
               type="email"
               outlined
               v-model="formData.email"
+              required
               label="Email" />
             <q-input
               dense
@@ -20,6 +22,7 @@
               type="password"
               outlined
               v-model="formData.password"
+              required
               label="Password" />
             <div class="row justify-center">
                 <q-btn 
@@ -35,18 +38,20 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 
 export default {
-    props: ['tab'],
     data() {
         return {
             formData: {
                 name: '',
-                email: 'chan@test.com',
-                password: '123456'
+                email: '',
+                password: ''
             }
         }
+    },
+    computed: {
+    ...mapState('store', ['tab']),
     },
     methods: {
         ...mapActions('store', ['registeUser', 'loginUser']),

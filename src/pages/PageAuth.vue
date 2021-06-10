@@ -2,7 +2,8 @@
   <q-page class="flex q-pa-md">
     <q-card class="full-width">
         <q-tabs
-          v-model="tab"
+          @click="setSelectedTab(selectedTab)"
+          v-model="selectedTab"
           dense
           class="text-grey"
           active-color="primary"
@@ -14,13 +15,13 @@
         </q-tabs>
         <q-separator />
 
-        <q-tab-panels v-model="tab" animated>
+        <q-tab-panels v-model="selectedTab" animated>
           <q-tab-panel name="login">
-            <login-register :tab="tab" />
+            <login-register  />
           </q-tab-panel>
 
           <q-tab-panel name="register">
-            <login-register :tab="tab" />
+            <login-register />
           </q-tab-panel>
         </q-tab-panels>
       </q-card>
@@ -29,15 +30,25 @@
 </template>
 
 <script>
+import { mapActions, mapState } from 'vuex';
 
 export default {
   data () {
     return {
-      tab: 'login'
+      selectedTab: ''
     }
   }, 
+  created() {
+    this.selectedTab = this.tab;
+  },
   components: {
     'login-register': require('components/LoginRegister.vue').default
+  },
+  computed: {
+    ...mapState('store',['tab'])
+  },
+  methods: {
+     ...mapActions('store',['setSelectedTab'])
   }
 }
 </script>

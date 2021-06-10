@@ -125,3 +125,8 @@ export function firebaseSendMessage({state}, payload) {
     firebaseDb.ref('chats/' + payload.otherUserId + '/' + 
     state.userDetails.userId).push(payload.message);
 }
+
+export function setSelectedTab({commit}, payload) {
+    console.log('payload :>> ', payload);
+    commit('setTab', payload);
+}

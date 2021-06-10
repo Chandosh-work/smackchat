@@ -56,7 +56,7 @@ export default {
     }
   },
   computed: {
-    ...mapState('store', ['userDetails', 'users']),
+    ...mapState('store', ['userDetails', 'users', 'tab']),
     title() {
         const currentPath = this.$route.fullPath;
         if(currentPath === "/") {
@@ -64,7 +64,7 @@ export default {
         } else if(currentPath.includes('/chat')) {
             return this.users[this.$route.params.otherUserId].name;
         } else if(currentPath === '/auth'){
-            return 'Login';
+            return this.tab=== 'login' ? 'Login': 'Register';
         }
     },
   }, 
