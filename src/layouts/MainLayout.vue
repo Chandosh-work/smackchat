@@ -14,7 +14,7 @@
           {{ title }}
         </q-toolbar-title>
 
-          <q-btn
+          <!-- <q-btn
           v-if="!userDetails.userId"
           to="/auth"
           class="absolute-right q-pr-sm"
@@ -23,9 +23,9 @@
           no-caps
           dense
           label="Login"
-          />
+          /> -->
           <q-btn
-          v-else
+           v-if="userDetails.userId"
           @click="logoutUser"
           class="absolute-right q-pr-sm"
           icon="account_circle"

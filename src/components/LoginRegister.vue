@@ -2,25 +2,28 @@
     <div>
         <q-form @submit="submitForm">
             <q-input v-if="tab==='register'"
+              dense
               class="q-pb-md"
               outlined
               v-model="formData.name"
               label="Name" />
             <q-input
+              dense
               class="q-pb-md"
               type="email"
               outlined
               v-model="formData.email"
               label="Email" />
             <q-input
+              dense
               class="q-pb-md"
               type="password"
               outlined
               v-model="formData.password"
               label="Password" />
-            <div class="row">
-                <q-space />
+            <div class="row justify-center">
                 <q-btn 
+                dense
                 color="primary"
                 type="submit"
                 :label="tab" />
