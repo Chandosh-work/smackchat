@@ -2,25 +2,31 @@
     <div>
         <q-form @submit="submitForm">
             <q-input v-if="tab==='register'"
+              dense
               class="q-pb-md"
               outlined
               v-model="formData.name"
+              required
               label="Name" />
             <q-input
+              dense
               class="q-pb-md"
               type="email"
               outlined
               v-model="formData.email"
+              required
               label="Email" />
             <q-input
+              dense
               class="q-pb-md"
               type="password"
               outlined
               v-model="formData.password"
+              required
               label="Password" />
-            <div class="row">
-                <q-space />
+            <div class="row justify-center">
                 <q-btn 
+                dense
                 color="primary"
                 type="submit"
                 :label="tab" />
@@ -32,18 +38,20 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 
 export default {
-    props: ['tab'],
     data() {
         return {
             formData: {
                 name: '',
-                email: 'chan@test.com',
-                password: '123456'
+                email: '',
+                password: ''
             }
         }
+    },
+    computed: {
+    ...mapState('store', ['tab']),
     },
     methods: {
         ...mapActions('store', ['registeUser', 'loginUser']),
